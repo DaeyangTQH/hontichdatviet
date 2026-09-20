@@ -1,0 +1,91 @@
+{
+  "brand": "Hồn Tích Đất Việt",
+  "collections": [
+    {
+      "id": "di-san",
+      "name": "Di sản",
+      "tagline": "Bộ Di sản · Hà Nội",
+      "description": "Ba mô hình biểu tượng Thủ đô — in 3D, hoàn thiện thủ công, sẵn sàng trưng bày.",
+      "products": [
+        {
+          "id": "khue-van-cac",
+          "name": "Khuê Văn Các",
+          "location": "Hà Nội",
+          "tagline": "Biểu tượng Văn Miếu Quốc Tử Giám.",
+          "image": "assets/img/model-khue-van-cac.png",
+          "alt": "Mô hình in 3D Khuê Văn Các, Văn Miếu Quốc Tử Giám, Hà Nội, màu gỗ sơn son trên bệ trưng bày trắng.",
+          "placeImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Khue_Van_pavilion.jpg/960px-Khue_Van_pavilion.jpg",
+          "placeAlt": "Khuê Văn Các tại Văn Miếu Quốc Tử Giám, Hà Nội.",
+          "summary": "Khuê Văn Các là biểu tượng của Văn Miếu Quốc Tử Giám — nơi tôn vinh truyền thống học vấn Việt Nam. Mô hình thu nhỏ mái cong, cửa sổ tròn và bốn trụ đá để mang biểu tượng ấy về nhà.",
+          "timeline": [
+            {
+              "year": "1805",
+              "text": "Khuê Văn Các được xây dưới triều Nguyễn, trở thành cổng vào không gian học thuật của Văn Miếu."
+            },
+            {
+              "year": "TK 20",
+              "text": "Hình ảnh cửa sổ tròn và mái cong trở thành biểu tượng quen thuộc của Hà Nội và giáo dục Việt Nam."
+            },
+            {
+              "year": "Hôm nay",
+              "text": "Khuê Văn Các xuất hiện trên tiền Việt Nam và trong ký ức đô thị — giờ có thể đứng trên kệ nhà bạn."
+            }
+          ],
+          "funFact": "Cửa sổ tròn của Khuê Văn Các tượng trưng cho sao Khuê — ngôi sao gắn với văn chương và học vấn."
+        },
+        {
+          "id": "chua-mot-cot",
+          "name": "Chùa Một Cột",
+          "location": "Hà Nội",
+          "tagline": "Đóa sen vươn lên từ mặt nước.",
+          "image": "assets/img/model-chua-mot-cot.png",
+          "alt": "Mô hình in 3D Chùa Một Cột, Hà Nội, gác chuông gỗ trên một trụ giữa hồ vuông.",
+          "placeImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/One_Pillar_Pagoda_Hanoi.jpg/960px-One_Pillar_Pagoda_Hanoi.jpg",
+          "placeAlt": "Chùa Một Cột thật tại Hà Nội.",
+          "summary": "Chùa Một Cột đứng trên một trụ giữa hồ vuông như đóa sen vươn lên mặt nước. Mô hình giữ lại hình dáng thanh mảnh và bệ hồ đặc trưng của ngôi chùa.",
+          "timeline": [
+            {
+              "year": "1049",
+              "text": "Chùa được xây theo ý vua Lý Thái Tông, gắn với hình ảnh đóa sen trong truyền thuyết."
+            },
+            {
+              "year": "1954",
+              "text": "Ngôi chùa bị phá hủy rồi được phục dựng, trở thành biểu tượng kiến trúc Phật giáo Việt."
+            },
+            {
+              "year": "Hôm nay",
+              "text": "Chùa Một Cột vẫn là điểm đến gắn với Hà Nội — và là một món trong bộ Di sản."
+            }
+          ],
+          "funFact": "Tên chữ của chùa là Diên Hựu tự — ngôi chùa cầu phúc thọ dài lâu."
+        },
+        {
+          "id": "thap-rua-ho-guom",
+          "name": "Tháp Rùa Hồ Gươm",
+          "location": "Hà Nội",
+          "tagline": "Truyền thuyết trả gươm giữa lòng hồ.",
+          "image": "assets/img/model-ho-guom.png",
+          "alt": "Mô hình in 3D Tháp Rùa giữa Hồ Gươm, Hà Nội, màu gỗ sơn son trên bệ trưng bày trắng.",
+          "placeImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Thap_Rua_%28Tottoise%29_Tower%2C_Hoan_Kiem_Lake%2C_Hanoi_%281%29_%2838442367376%29.jpg/960px-Thap_Rua_%28Tottoise%29_Tower%2C_Hoan_Kiem_Lake%2C_Hanoi_%281%29_%2838442367376%29.jpg",
+          "placeAlt": "Tháp Rùa nằm trên gò nhỏ giữa Hồ Gươm, Hà Nội.",
+          "summary": "Tháp Rùa đứng giữa Hồ Hoàn Kiếm — biểu tượng gắn với truyền thuyết trả gươm thần. Mô hình thu nhỏ tháp nhiều tầng và gò đất giữa hồ.",
+          "timeline": [
+            {
+              "year": "TK 15",
+              "text": "Truyền thuyết vua Lê Lợi trả gươm thần cho Rùa Vàng gắn Hồ Gươm với tên gọi Hoàn Kiếm."
+            },
+            {
+              "year": "1886",
+              "text": "Tháp Rùa được xây trên gò Rùa, trở thành điểm nhấn giữa mặt hồ."
+            },
+            {
+              "year": "Hôm nay",
+              "text": "Hình ảnh Tháp Rùa là biểu tượng quen thuộc của Hà Nội — giờ có thể đứng trên kệ nhà bạn."
+            }
+          ],
+          "funFact": "Tên Hồ Hoàn Kiếm nghĩa là hồ trả gươm, bắt nguồn từ truyền thuyết thanh gươm Thuận Thiên."
+        }
+      ]
+    }
+  ]
+}

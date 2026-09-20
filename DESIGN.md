@@ -1,6 +1,6 @@
 ---
 name: Hồn Tích Đất Việt
-description: Mỗi món lưu niệm mở ra một câu chuyện Việt Nam.
+description: Mô hình di sản Việt Nam — in 3D, hoàn thiện thủ công.
 colors:
   ink: "#000000"
   paper: "#f6f2ea"
@@ -185,7 +185,7 @@ Depth cũng đến từ: `backdrop-blur-md` trên navbar và ghost buttons (func
 
 - **Ambient card** (`0 25px 50px -12px rgba(0,0,0,0.05)`): Collection cards, story preview at rest (`shadow-xl shadow-black/5`).
 - **Featured lift** (`0 25px 50px -12px rgba(0,0,0,0.05)` at larger spread): Story hero card (`shadow-2xl shadow-black/5`).
-- **Inner recess** (`inset 0 2px 4px rgba(0,0,0,0.06)`): QR placeholder box.
+- **Inner recess** (`inset 0 2px 4px rgba(0,0,0,0.06)`): recessed media frames when needed.
 - **Hover lift** (`transform: translateY(-4px)`): Collection cards on hover — structural, not shadow-only.
 
 ### Named Rules
@@ -222,7 +222,7 @@ Depth cũng đến từ: `backdrop-blur-md` trên navbar và ghost buttons (func
 ### Step Rows (signature)
 
 - **Style:** Horizontal pill rows with numbered circle (ink bg, white numeral) + label text.
-- **Use:** Real 3-step sequence ("Chọn mô hình → Quét QR → Khám phá") — numbers earn their place here.
+- **Use:** Real 3-step sequence ("Chọn địa danh → Trưng bày → Sưu tập đủ bộ") — numbers earn their place here.
 
 ### Video Hero (signature)
 
@@ -237,8 +237,8 @@ Depth cũng đến từ: `backdrop-blur-md` trên navbar và ghost buttons (func
 Hero phải đẹp **và** rõ ràng — trả lời trong vài giây đầu: _cái gì / khác gì / làm gì tiếp_ (xem PRODUCT.md › Hero Requirements).
 
 - **H1 (display):** câu định vị sản phẩm, không chỉ slogan thơ. Gợi ý: "Vietnamese Souvenir Models Made from Recycled Plastic".
-- **Subhead (body):** một dòng hành động — "Scan the QR code to discover the stories behind each destination."
-- **CTA:** ít nhất một primary rõ ràng (Xem bộ sưu tập / Mua / Quét QR) ở fold đầu.
+- **Subhead (body):** một dòng hành động — "Collect a set of Vietnam’s landmarks — handmade, display-ready."
+- **CTA:** ít nhất một primary rõ ràng (Xem bộ sưu tập / Liên hệ) ở fold đầu.
 - **Cân bằng:** giữ chất editorial chậm, nhưng không hi sinh sự rõ ràng về sản phẩm.
 
 ### Collection Grid (signature)
@@ -251,26 +251,20 @@ Tổ chức sản phẩm theo **bộ sưu tập** (Vietnam Heritage Collection),
 - **Items khởi đầu:** Hồ Gươm · Chùa Một Cột · Hội An · Huế · Tràng An · Vịnh Hạ Long.
 - **Tương lai:** trạng thái "đã sưu tập / chưa" (progress) — Priority 3.
 
-### QR Story Page (product surface)
+### Heritage Spotlight (landing section)
 
-Trang mỗi địa danh, thiết kế như sản phẩm riêng để tạo cảm giác "mở khóa câu chuyện". Thứ tự section chuẩn:
+Một section trên landing giới thiệu ý nghĩa văn hóa đứng sau sản phẩm — không phải trang QR hay unlock digital.
 
-1. **Hero** — tên địa danh + ảnh nổi bật (full-bleed, Display title).
-2. **Story Timeline** — lịch sử hình thành (dùng Step Rows / timeline dọc).
-3. **Interactive Map** — vị trí thực tế (frame bo góc 1.5rem, full border).
-4. **Fun Facts** — 3–5 mục, mỗi mục một ý ngắn (không card grid giống hệt nhau).
-5. **Audio Story** — player ~1 phút, có control (không autoplay).
-6. **Mini Quiz** — 3 câu hỏi nhanh, phản hồi tức thì.
-7. **Related Destinations** — gợi ý địa danh khác trong bộ sưu tập (dẫn ngược về Collection).
-
-Register của trang này có thể chuyển sang `product` khi build.
+- **Media:** ảnh mô hình + ảnh địa danh thật (hai figure xếp chồng).
+- **Panel:** tên địa danh, đoạn giới thiệu ngắn, timeline 3 mốc, một fun fact.
+- **Mục đích:** giúp khách hiểu mỗi mô hình gắn với di sản thật — rồi dẫn về bộ sưu tập.
 
 ### Comparison Section (USP)
 
 So sánh trực tiếp để làm rõ điểm khác biệt — phục vụ pitch / khảo sát / nhà đầu tư.
 
 - **Layout:** hai cột (Traditional Souvenir vs Hồn Tích Đất Việt), không dùng side-stripe border; phân tách bằng full border / background tint.
-- **Nội dung:** trang trí-vs-kể chuyện, không story-vs-QR experience, giá trị giáo dục, nhựa thường-vs-tái chế.
+- **Nội dung:** trang trí-vs-trưng bày & sưu tập, không gắn di sản-vs-mỗi mô hình một địa danh, đại trà-vs-in 3D thủ công, mua lẻ-vs-gom đủ bộ.
 - **Nhấn mạnh:** cột Hồn Tích Đất Việt dùng accent Aged Lacquer nhẹ ở tiêu đề/checkmark, không flood.
 
 ## Do's and Don'ts
@@ -298,4 +292,4 @@ So sánh trực tiếp để làm rõ điểm khác biệt — phục vụ pitch
 - **Don't** use Instrument Serif or other Latin-only display fonts for Vietnamese headlines.
 - **Don't** revert the accent to luxury/jewelry gold (`#b98a3a`); keep the aged-wood lacquer tone.
 - **Don't** overload motifs into a state-tourism / traditional-museum look — stay within 5–10%.
-- **Don't** let the QR page feel like a generic info page — it must feel like unlocking a story.
+- **Don't** frame the site around QR unlock / digital storytelling — this is a product introduction landing.
