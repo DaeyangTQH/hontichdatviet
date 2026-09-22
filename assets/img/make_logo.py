@@ -1,6 +1,6 @@
 """Generate transparent / recolored variants of the brand logo.
 
-Source: assets/img/logo.jpg  (parchment background, dark-brown ink line-art)
+Source: assets/img/logo.png  (parchment background, dark-brown ink line-art)
 Method: knock out the warm paper background using a luminance ramp so the
 brown ink keeps its anti-aliased edges, then derive recolored variants.
 """
@@ -8,7 +8,7 @@ from PIL import Image
 import numpy as np
 import os
 
-SRC = "logo.jpg"
+SRC = "logo.png"
 HERE = os.path.dirname(os.path.abspath(__file__))
 os.chdir(HERE)
 

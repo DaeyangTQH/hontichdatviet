@@ -268,19 +268,8 @@ a { color: inherit; }
   width: auto;
   user-select: none;
   -webkit-user-drag: none;
+  border-radius: 0.55rem;
 }
-/* Header swaps emblem tone: ivory over the dark hero, ink once scrolled. */
-.site-header .brand-emblem { transition: opacity 0.3s var(--ease-out); }
-.site-header .brand-emblem--ink {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: auto;
-  opacity: 0;
-}
-.site-header.is-scrolled .brand-emblem--light { opacity: 0; }
-.site-header.is-scrolled .brand-emblem--ink { opacity: 1; }
 .btn-nav { flex: none; }
 .nav-links {
   display: flex;
@@ -840,8 +829,6 @@ a { color: inherit; }
 }
 .page-product .site-header .wordmark { color: var(--ink); }
 .page-product .site-header .nav-links a { color: var(--muted); }
-.page-product .site-header .brand-emblem--light { opacity: 0; }
-.page-product .site-header .brand-emblem--ink { opacity: 1; }
 .product-main {
   padding-top: clamp(6.5rem, 12vw, 8rem);
   padding-bottom: clamp(3rem, 6vw, 5rem);
