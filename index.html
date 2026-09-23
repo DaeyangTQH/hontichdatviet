@@ -8,13 +8,13 @@
   <meta property="og:title" content="Hồn Tích Đất Việt — Bộ sưu tập mô hình di sản Việt Nam" />
   <meta property="og:description" content="Mô hình địa danh Việt Nam in 3D — hoàn thiện thủ công, thiết kế để trưng bày và sưu tập." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/img/hero-collection.png" />
+  <meta property="og:image" content="assets/img/3-san-pham.jpg" />
   <meta name="theme-color" content="#f6f2ea" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/styles.css?v=12" />
   <link rel="icon" type="image/png" href="assets/img/logo.png" />
   <link rel="apple-touch-icon" href="assets/img/logo.png" />
 </head>
@@ -27,9 +27,7 @@
         <img class="brand-emblem" src="assets/img/logo.png" alt="Hồn Tích Đất Việt" width="120" height="120" decoding="async" />
       </a>
       <nav class="nav-links" aria-label="Điều hướng chính">
-        <a href="#how">Sản phẩm</a>
         <a href="#why">Vì sao khác biệt</a>
-        <a href="#collection">Bộ sưu tập</a>
         <a href="#craft">Chất liệu</a>
       </nav>
       <a class="btn btn-nav" href="#collection">
@@ -93,50 +91,12 @@
       <div class="container">
         <figure class="showcase-figure" data-reveal>
           <img
-            src="assets/img/hero-collection.png"
-            alt="Ba mô hình in 3D màu gỗ sơn son: Chùa Một Cột, Chùa Cầu Hội An và Tháp Rùa Hồ Gươm, đặt trên bệ trưng bày."
-            width="1536" height="1024" loading="lazy" decoding="async"
+            src="assets/img/3-san-pham.jpg"
+            alt="Ba mô hình in 3D Khuê Văn Các, Chùa Một Cột và Tháp Rùa đặt cạnh nhau trên kệ gỗ."
+            width="2568" height="1502" loading="lazy" decoding="async" data-zoom
           />
-          <figcaption>Mỗi mô hình là một địa danh — in 3D, hoàn thiện thủ công.</figcaption>
+          <figcaption>Bộ Di sản: Khuê Văn Các, Chùa Một Cột và Tháp Rùa — in 3D, sơn tay từng chi tiết.</figcaption>
         </figure>
-      </div>
-    </section>
-
-    <!-- PRODUCT JOURNEY -->
-    <section id="how" class="section how" aria-labelledby="how-title">
-      <div class="container">
-        <header class="section-head">
-          <p class="kicker">Sản phẩm</p>
-          <h2 id="how-title" class="headline" data-reveal>Một mô hình trên tay, một địa danh mang về nhà.</h2>
-          <p class="section-intro" data-reveal>
-            Không phải đồ trang trí đại trà. Mỗi món là một di sản Việt Nam
-            được thu nhỏ — để trưng bày, để tặng, để sưu tập đủ bộ.
-          </p>
-        </header>
-
-        <ol class="steps" aria-label="Ba bước với sản phẩm">
-          <li class="step" data-reveal>
-            <span class="step-no">01</span>
-            <div class="step-body">
-              <h3 class="step-title">Chọn địa danh</h3>
-              <p>Bộ Di sản khởi đầu với ba mô hình Hà Nội — mỗi cái một câu chuyện đất nước.</p>
-            </div>
-          </li>
-          <li class="step" data-reveal>
-            <span class="step-no">02</span>
-            <div class="step-body">
-              <h3 class="step-title">Trưng bày</h3>
-              <p>Hoàn thiện thủ công, màu gỗ sơn son, đứng vững trên kệ, bàn làm việc hay góc trưng bày.</p>
-            </div>
-          </li>
-          <li class="step" data-reveal>
-            <span class="step-no">03</span>
-            <div class="step-body">
-              <h3 class="step-title">Sưu tập đủ bộ</h3>
-              <p>Gom từng địa danh thành Vietnam Heritage Collection — một dải đất nước thu nhỏ.</p>
-            </div>
-          </li>
-        </ol>
       </div>
     </section>
 
@@ -174,9 +134,8 @@
     <!-- COLLECTION (rendered from assets/data/catalog.json) -->
     <section id="collection" class="section collection" aria-labelledby="collection-title">
       <div class="container">
-        <header class="section-head">
-          <p class="kicker">Bộ sưu tập</p>
-          <h2 id="collection-title" class="headline" data-reveal>Bộ Di sản — ba mô hình Hà Nội.</h2>
+        <header class="section-head collection-head">
+          <h2 id="collection-title" class="kicker">Bộ sưu tập</h2>
           <p class="section-intro" data-reveal>
             Bộ sưu tập đầu tiên của Hồn Tích Đất Việt: Khuê Văn Các, Chùa Một Cột
             và Tháp Rùa Hồ Gươm — in 3D, thủ công, sẵn sàng trưng bày.
@@ -187,42 +146,6 @@
           <div class="collection-tablist" role="tablist" aria-label="Chọn bộ sưu tập" data-collection-tablist></div>
           <div data-collection-panels>
             <p class="collection-empty">Đang tải bộ sưu tập…</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- HERITAGE SPOTLIGHT (product meaning, not QR) -->
-    <section id="heritage" class="section story" aria-labelledby="heritage-title">
-      <div class="container story-grid">
-        <div class="story-media-stack" data-reveal>
-          <figure class="story-photo story-photo--lead">
-            <img src="assets/img/model-ho-guom.png" alt="Mô hình in 3D Tháp Rùa Hồ Gươm trên nền trưng bày." width="1536" height="1024" loading="lazy" decoding="async" />
-            <figcaption>Mô hình Tháp Rùa — một món trong bộ sưu tập Di sản.</figcaption>
-          </figure>
-
-          <figure class="story-photo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Thap_Rua_%28Tottoise%29_Tower%2C_Hoan_Kiem_Lake%2C_Hanoi_%281%29_%2838442367376%29.jpg/960px-Thap_Rua_%28Tottoise%29_Tower%2C_Hoan_Kiem_Lake%2C_Hanoi_%281%29_%2838442367376%29.jpg" alt="Tháp Rùa nằm trên gò nhỏ giữa Hồ Gươm, Hà Nội, bao quanh bởi mặt nước và cây xanh." width="960" height="632" loading="lazy" decoding="async" />
-            <figcaption>Tháp Rùa thật giữa Hồ Gươm — hình ảnh đứng sau mô hình bạn cầm trên tay.</figcaption>
-          </figure>
-        </div>
-
-        <div class="story-panel" data-reveal>
-          <header class="story-panel-head">
-            <p class="kicker">Sau mỗi mô hình</p>
-            <h2 id="heritage-title" class="title">Tháp Rùa · Hồ Gươm</h2>
-            <p class="story-sub">Mỗi sản phẩm mang về nhà một địa danh thật — không chỉ hình dáng, mà cả ký ức và ý nghĩa của nơi đó.</p>
-          </header>
-
-          <ol class="timeline" aria-label="Dòng thời gian Tháp Rùa Hồ Gươm">
-            <li><span class="t-year">TK 15</span><span class="t-text">Truyền thuyết vua Lê Lợi trả gươm thần cho Rùa Vàng gắn Hồ Gươm với tên gọi Hoàn Kiếm.</span></li>
-            <li><span class="t-year">1886</span><span class="t-text">Tháp Rùa được xây trên gò Rùa, trở thành điểm nhấn giữa mặt hồ.</span></li>
-            <li><span class="t-year">Hôm nay</span><span class="t-text">Hình ảnh Tháp Rùa là biểu tượng quen thuộc của Hà Nội — giờ có thể đứng trên kệ nhà bạn.</span></li>
-          </ol>
-
-          <div class="funfact">
-            <span class="funfact-label">Fun fact</span>
-            <p>Tên Hồ Hoàn Kiếm nghĩa là hồ trả gươm, bắt nguồn từ truyền thuyết thanh gươm Thuận Thiên.</p>
           </div>
         </div>
       </div>
@@ -269,7 +192,7 @@
         <p class="section-intro" data-reveal>Mang một địa danh Việt Nam về nhà — trưng bày, tặng, và gom đủ bộ.</p>
         <div class="hero-actions" data-reveal>
           <a class="btn btn-primary" href="#collection">Xem bộ sưu tập</a>
-          <a class="btn btn-ghost" href="mailto:hello@hontichdatviet.vn">Liên hệ hợp tác</a>
+          <a class="btn btn-ghost" href="contact.html">Liên hệ đặt mua</a>
         </div>
       </div>
     </section>
@@ -286,19 +209,17 @@
       </div>
       <nav class="footer-col" aria-label="Bộ sưu tập">
         <h4>Bộ sưu tập</h4>
-        <a href="#collection">Bộ sưu tập Di sản</a>
-        <a href="#heritage">Sau mỗi mô hình</a>
-        <a href="#how">Sản phẩm</a>
-      </nav>
+        <a href="#collection">Bộ sưu tập Di sản</a>      </nav>
       <nav class="footer-col" aria-label="Thương hiệu">
         <h4>Thương hiệu</h4>
         <a href="#why">Vì sao khác biệt</a>
         <a href="#craft">Chất liệu &amp; thủ công</a>
       </nav>
-      <div class="footer-col">
-        <h4>Liên hệ</h4>
-        <a href="mailto:hello@hontichdatviet.vn">hello@hontichdatviet.vn</a>
-        <a href="mailto:hello@hontichdatviet.vn">Hợp tác &amp; phân phối</a>
+      <div class="footer-col" id="contact">
+        <h4>Liên hệ đặt mua</h4>
+        <a href="https://zalo.me/0985904488" target="_blank" rel="noopener">Zalo · 0985 904 488</a>
+        <a href="https://www.facebook.com/hontichdatviet/" target="_blank" rel="noopener">Fanpage Facebook</a>
+        <a href="mailto:hontichdatviet@gmail.com">hontichdatviet@gmail.com</a>
       </div>
     </div>
     <div class="container footer-base">
@@ -307,7 +228,7 @@
     </div>
   </footer>
 
-  <script src="assets/catalog.js" defer></script>
-  <script src="assets/main.js" defer></script>
+  <script src="assets/catalog.js?v=12" defer></script>
+  <script src="assets/main.js?v=12" defer></script>
 </body>
 </html>

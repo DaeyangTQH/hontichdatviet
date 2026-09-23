@@ -46,6 +46,83 @@
     window.addEventListener("scroll", onScroll, { passive: true });
   }
 
+  /* Lightbox: any img[data-zoom] (including ones rendered later from JSON)
+     opens the full, uncropped photo. Capture phase so a zoomable image
+     inside a card link opens the lightbox instead of navigating. */
+  var lightbox = document.createElement("dialog");
+  lightbox.className = "lightbox";
+  lightbox.setAttribute("aria-label", "Xem ảnh phóng to");
+  lightbox.innerHTML =
+    '<button type="button" class="lightbox-close" aria-label="Đóng ảnh">&times;</button>' +
+    '<figure class="lightbox-figure">' +
+      '<img class="lightbox-img" alt="" />' +
+      '<figcaption class="lightbox-caption"></figcaption>' +
+    '</figure>';
+  document.body.appendChild(lightbox);
+
+  var lightboxImg = lightbox.querySelector(".lightbox-img");
+  var lightboxCaption = lightbox.querySelector(".lightbox-caption");
+
+  var openLightbox = function (img) {
+    var figure = img.closest("figure");
+    var caption = figure && figure.querySelector("figcaption");
+    lightboxImg.src = img.currentSrc || img.src;
+    lightboxImg.alt = img.alt;
+    lightboxCaption.textContent = caption ? caption.textContent : img.alt;
+    if (typeof lightbox.showModal === "function") lightbox.showModal();
+    else lightbox.setAttribute("open", "");
+    document.documentElement.classList.add("lightbox-open");
+  };
+
+  var closeLightbox = function () {
+    if (typeof lightbox.close === "function") lightbox.close();
+    else lightbox.removeAttribute("open");
+  };
+
+  lightbox.addEventListener("close", function () {
+    document.documentElement.classList.remove("lightbox-open");
+    lightboxImg.removeAttribute("src");
+  });
+  lightbox.addEventListener("click", function (event) {
+    if (event.target !== lightboxImg) closeLightbox();
+  });
+
+  document.addEventListener(
+    "click",
+    function (event) {
+      var img = event.target.closest && event.target.closest("img[data-zoom]");
+      if (!img) return;
+      event.preventDefault();
+      event.stopPropagation();
+      openLightbox(img);
+    },
+    true
+  );
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && lightbox.open) {
+      event.preventDefault();
+      closeLightbox();
+      return;
+    }
+    if (event.key !== "Enter" && event.key !== " ") return;
+    var img = event.target.closest && event.target.closest("img[data-zoom]");
+    if (!img) return;
+    event.preventDefault();
+    openLightbox(img);
+  });
+
+  var makeZoomablesFocusable = function () {
+    document.querySelectorAll("img[data-zoom]:not([tabindex])").forEach(function (img) {
+      if (img.closest("a")) return;
+      img.tabIndex = 0;
+      img.setAttribute("role", "button");
+      img.setAttribute("aria-label", "Phóng to ảnh: " + img.alt);
+    });
+  };
+  makeZoomablesFocusable();
+  new MutationObserver(makeZoomablesFocusable).observe(document.body, { childList: true, subtree: true });
+
   /* Scroll reveal — enhances an already-visible default.
      CSS only hides [data-reveal] once .reveal-ready is set here,
      so content stays visible if JS or motion is unavailable. */

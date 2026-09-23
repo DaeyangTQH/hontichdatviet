@@ -3,6 +3,8 @@
 
   var CATALOG_URL = "assets/data/catalog.json";
 
+  var CONTACT_EMAIL = "hontichdatviet@gmail.com";
+
   function escapeHtml(value) {
     return String(value == null ? "" : value)
       .replace(/&/g, "&amp;")
@@ -54,12 +56,23 @@
     return "product.html?id=" + encodeURIComponent(productId);
   }
 
+  function sizeAttrs(width, height) {
+    if (!width || !height) return "";
+    return ' width="' + Number(width) + '" height="' + Number(height) + '"';
+  }
+
+  function focusAttr(focus) {
+    return focus ? ' style="--focus: ' + escapeHtml(focus) + '"' : "";
+  }
+
   function renderProductCard(product) {
     return (
       '<li>' +
         '<a class="place-card" href="' + escapeHtml(productHref(product.id)) + '">' +
           '<div class="place-media">' +
-            '<img src="' + escapeHtml(product.image) + '" alt="' + escapeHtml(product.alt || product.name) + '" width="1536" height="1024" loading="lazy" decoding="async" />' +
+            '<img src="' + escapeHtml(product.image) + '" alt="' + escapeHtml(product.alt || product.name) + '"' +
+              focusAttr(product.cardFocus) +
+              sizeAttrs(product.imageWidth, product.imageHeight) + ' loading="lazy" decoding="async" />' +
             '<span class="frame-corner" aria-hidden="true"></span>' +
           '</div>' +
           '<div class="place-body">' +
@@ -155,22 +168,14 @@
           '<div class="collection-panel" role="tabpanel" id="' + escapeHtml(panelId) + '"' +
           ' aria-labelledby="tab-' + escapeHtml(collection.id) + '"' +
           ' data-collection-panel' + (index === 0 ? "" : " hidden") + '>' +
-            '<p class="collection-panel-lead">' +
-              escapeHtml(collection.tagline) +
-              (collection.description ? " — " + escapeHtml(collection.description) : "") +
-            '</p>' +
             '<ul class="collection-grid">' + cards + '</ul>' +
           '</div>'
         );
       })
       .join("");
 
-    var title = document.getElementById("collection-title");
     var intro = root.closest(".collection") && root.closest(".collection").querySelector(".section-intro");
     var first = collections[0];
-    if (title && first) {
-      title.textContent = "Bộ " + first.name + " — " + (first.products || []).length + " mô hình.";
-    }
     if (intro && first) {
       intro.textContent = first.description || "";
     }
@@ -222,6 +227,43 @@
     );
   }
 
+  function contactHref(productId) {
+    return "contact.html?product=" + encodeURIComponent(productId);
+  }
+
+  function renderContact(product) {
+    return (
+      '<div class="product-contact">' +
+        '<p class="product-contact-label">Đặt mua</p>' +
+        '<a class="btn btn-primary" href="' + escapeHtml(contactHref(product.id)) + '">Liên hệ đặt mua</a>' +
+        '<p class="product-contact-note">Qua Zalo, Fanpage Facebook hoặc email.</p>' +
+      '</div>'
+    );
+  }
+
+  function renderContactPage(catalog) {
+    var note = document.querySelector("[data-contact-product]");
+    if (!note) return;
+
+    var productId = getQueryParam("product");
+    var found = productId ? findProduct(catalog, productId) : null;
+    if (!found) return;
+
+    var product = found.product;
+    note.innerHTML =
+      'Mô hình bạn quan tâm: <a href="' + escapeHtml(productHref(product.id)) + '">' +
+      escapeHtml(product.name) + '</a>';
+    note.removeAttribute("hidden");
+
+    var email = document.querySelector("[data-contact-email]");
+    if (email) {
+      email.setAttribute(
+        "href",
+        "mailto:" + CONTACT_EMAIL + "?subject=" + encodeURIComponent("Đặt mua: " + product.name)
+      );
+    }
+  }
+
   function renderProductPage(catalog) {
     var mount = document.querySelector("[data-product-page]");
     if (!mount) return;
@@ -253,14 +295,40 @@
       );
     }
 
-    var placeBlock = product.placeImage
-      ? (
-          '<figure class="story-photo">' +
-            '<img src="' + escapeHtml(product.placeImage) + '" alt="' + escapeHtml(product.placeAlt || product.name) + '" width="960" height="640" loading="lazy" decoding="async" />' +
-            '<figcaption>' + escapeHtml(product.placeAlt || ("Địa danh thật — " + product.name)) + '</figcaption>' +
+    var shots = [
+      {
+        src: product.image,
+        alt: product.alt || product.name,
+        width: product.imageWidth,
+        height: product.imageHeight,
+        focus: product.cardFocus,
+        caption: "Mô hình " + product.name + " — bộ " + collection.name + "."
+      }
+    ];
+    if (product.placeImage) {
+      shots.push({
+        src: product.placeImage,
+        alt: product.placeAlt || product.name,
+        width: product.placeImageWidth,
+        height: product.placeImageHeight,
+        focus: product.placeFocus,
+        caption: product.placeAlt || ("Địa danh thật — " + product.name)
+      });
+    }
+
+    var gallery = shots
+      .map(function (shot) {
+        return (
+          '<figure class="product-shot">' +
+            '<div class="product-shot-frame">' +
+              '<img src="' + escapeHtml(shot.src) + '" alt="' + escapeHtml(shot.alt) + '"' + focusAttr(shot.focus) + ' data-zoom' +
+                sizeAttrs(shot.width, shot.height) + ' decoding="async" />' +
+            '</div>' +
+            '<figcaption>' + escapeHtml(shot.caption) + '</figcaption>' +
           '</figure>'
-        )
-      : "";
+        );
+      })
+      .join("");
 
     mount.innerHTML =
       '<div class="container product-shell">' +
@@ -272,30 +340,23 @@
           '<span>' + escapeHtml(product.name) + '</span>' +
         '</nav>' +
 
-        '<div class="product-hero story-grid">' +
-          '<div class="story-media-stack">' +
-            '<figure class="story-photo story-photo--lead product-shot">' +
-              '<img src="' + escapeHtml(product.image) + '" alt="' + escapeHtml(product.alt || product.name) + '" width="1536" height="1024" decoding="async" />' +
-              '<figcaption>Mô hình ' + escapeHtml(product.name) + ' — bộ ' + escapeHtml(collection.name) + '.</figcaption>' +
-            '</figure>' +
-            placeBlock +
-          '</div>' +
+        '<div class="product-gallery">' + gallery + '</div>' +
 
-          '<div class="story-panel">' +
+        '<div class="product-detail story-panel">' +
+          '<div class="product-info">' +
             '<header class="story-panel-head">' +
               '<p class="kicker">Bộ ' + escapeHtml(collection.name) + '</p>' +
               '<h1 class="title">' + escapeHtml(product.name) + '</h1>' +
               '<p class="story-sub">' + escapeHtml(product.location) + ' · ' + escapeHtml(product.tagline) + '</p>' +
             '</header>' +
             '<p class="product-summary">' + escapeHtml(product.summary || "") + '</p>' +
+            renderContact(product) +
+          '</div>' +
+          '<div class="product-story">' +
             renderTimeline(product.timeline) +
             (product.funFact
               ? '<div class="funfact"><span class="funfact-label">Fun fact</span><p>' + escapeHtml(product.funFact) + '</p></div>'
               : "") +
-            '<div class="product-actions">' +
-              '<a class="btn btn-primary" href="mailto:hello@hontichdatviet.vn?subject=' + encodeURIComponent("Quan tâm: " + product.name) + '">Liên hệ mua / hợp tác</a>' +
-              '<a class="btn btn-ghost" href="index.html#collection">Các mô hình khác</a>' +
-            '</div>' +
           '</div>' +
         '</div>' +
 
@@ -309,6 +370,7 @@
         global.HTDV_CATALOG = catalog;
         renderHomeCollections(catalog);
         renderProductPage(catalog);
+        renderContactPage(catalog);
         return catalog;
       })
       .catch(function (error) {

@@ -6,17 +6,24 @@
       "name": "Di sản",
       "tagline": "Bộ Di sản · Hà Nội",
       "description": "Ba mô hình biểu tượng Thủ đô — in 3D, hoàn thiện thủ công, sẵn sàng trưng bày.",
+      "coverImage": "assets/img/3-san-pham.jpg",
+      "coverAlt": "Ba mô hình in 3D Khuê Văn Các, Chùa Một Cột và Tháp Rùa đặt cạnh nhau trên kệ gỗ.",
       "products": [
         {
           "id": "khue-van-cac",
           "name": "Khuê Văn Các",
           "location": "Hà Nội",
           "tagline": "Biểu tượng Văn Miếu Quốc Tử Giám.",
-          "image": "assets/img/model-khue-van-cac.png",
-          "alt": "Mô hình in 3D Khuê Văn Các, Văn Miếu Quốc Tử Giám, Hà Nội, màu gỗ sơn son trên bệ trưng bày trắng.",
-          "placeImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Khue_Van_pavilion.jpg/960px-Khue_Van_pavilion.jpg",
-          "placeAlt": "Khuê Văn Các tại Văn Miếu Quốc Tử Giám, Hà Nội.",
-          "summary": "Khuê Văn Các là biểu tượng của Văn Miếu Quốc Tử Giám — nơi tôn vinh truyền thống học vấn Việt Nam. Mô hình thu nhỏ mái cong, cửa sổ tròn và bốn trụ đá để mang biểu tượng ấy về nhà.",
+          "image": "assets/img/van-khue-cac.jpg",
+          "imageWidth": 2085,
+          "imageHeight": 2414,
+          "cardFocus": "50% 75%",
+          "alt": "Mô hình in 3D Khuê Văn Các: gác sơn đỏ với cửa sổ tròn, mái vàng đồng phủ patina xanh, bốn trụ giả đá trên bệ vuông.",
+          "placeImage": "assets/img/khue-van-cac-real.jpeg",
+          "placeImageWidth": 974,
+          "placeImageHeight": 779,
+          "placeAlt": "Khuê Văn Các thật tại Văn Miếu Quốc Tử Giám, Hà Nội.",
+          "summary": "Khuê Văn Các là biểu tượng của Văn Miếu Quốc Tử Giám — nơi tôn vinh truyền thống học vấn Việt Nam. Mô hình giữ lại gác đỏ với cửa sổ tròn, hai tầng mái cong và bốn trụ đá, sơn tay từng lớp để lên màu thời gian.",
           "timeline": [
             {
               "year": "1805",
@@ -28,7 +35,7 @@
             },
             {
               "year": "Hôm nay",
-              "text": "Khuê Văn Các xuất hiện trên tiền Việt Nam và trong ký ức đô thị — giờ có thể đứng trên kệ nhà bạn."
+              "text": "Khuê Văn Các là biểu tượng chính thức của Thủ đô Hà Nội — giờ có thể đứng trên kệ nhà bạn."
             }
           ],
           "funFact": "Cửa sổ tròn của Khuê Văn Các tượng trưng cho sao Khuê — ngôi sao gắn với văn chương và học vấn."
@@ -38,11 +45,16 @@
           "name": "Chùa Một Cột",
           "location": "Hà Nội",
           "tagline": "Đóa sen vươn lên từ mặt nước.",
-          "image": "assets/img/model-chua-mot-cot.png",
-          "alt": "Mô hình in 3D Chùa Một Cột, Hà Nội, gác chuông gỗ trên một trụ giữa hồ vuông.",
-          "placeImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/One_Pillar_Pagoda_Hanoi.jpg/960px-One_Pillar_Pagoda_Hanoi.jpg",
-          "placeAlt": "Chùa Một Cột thật tại Hà Nội.",
-          "summary": "Chùa Một Cột đứng trên một trụ giữa hồ vuông như đóa sen vươn lên mặt nước. Mô hình giữ lại hình dáng thanh mảnh và bệ hồ đặc trưng của ngôi chùa.",
+          "image": "assets/img/chua-1-cot.jpg",
+          "imageWidth": 2564,
+          "imageHeight": 1574,
+          "cardFocus": "88% 50%",
+          "alt": "Mô hình in 3D Chùa Một Cột: điện thờ màu đồng sẫm trên một trụ đá, cầu thang giả đá dẫn lên, đặt trên bệ trắng.",
+          "placeImage": "assets/img/chua-1-cot-real.jpg",
+          "placeImageWidth": 487,
+          "placeImageHeight": 410,
+          "placeAlt": "Chùa Một Cột thật tại Hà Nội, giữa hồ sen vuông.",
+          "summary": "Chùa Một Cột đứng trên một trụ giữa hồ vuông như đóa sen vươn lên mặt nước. Mô hình giữ lại điện thờ mái cong trên một trụ, hệ con sơn đỡ mái và cầu thang đá dẫn lên chùa.",
           "timeline": [
             {
               "year": "1049",
@@ -64,11 +76,16 @@
           "name": "Tháp Rùa Hồ Gươm",
           "location": "Hà Nội",
           "tagline": "Truyền thuyết trả gươm giữa lòng hồ.",
-          "image": "assets/img/model-ho-guom.png",
-          "alt": "Mô hình in 3D Tháp Rùa giữa Hồ Gươm, Hà Nội, màu gỗ sơn son trên bệ trưng bày trắng.",
-          "placeImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Thap_Rua_%28Tottoise%29_Tower%2C_Hoan_Kiem_Lake%2C_Hanoi_%281%29_%2838442367376%29.jpg/960px-Thap_Rua_%28Tottoise%29_Tower%2C_Hoan_Kiem_Lake%2C_Hanoi_%281%29_%2838442367376%29.jpg",
-          "placeAlt": "Tháp Rùa nằm trên gò nhỏ giữa Hồ Gươm, Hà Nội.",
-          "summary": "Tháp Rùa đứng giữa Hồ Hoàn Kiếm — biểu tượng gắn với truyền thuyết trả gươm thần. Mô hình thu nhỏ tháp nhiều tầng và gò đất giữa hồ.",
+          "image": "assets/img/thap-rua.jpg",
+          "imageWidth": 1886,
+          "imageHeight": 2417,
+          "cardFocus": "50% 100%",
+          "alt": "Mô hình in 3D Tháp Rùa: ba tầng vòm cuốn giả đá rêu phong, đỉnh mái đồng sẫm với rồng chầu, đặt trên bệ đá.",
+          "placeImage": "assets/img/thap-rua-real.jpg",
+          "placeImageWidth": 330,
+          "placeImageHeight": 497,
+          "placeAlt": "Tháp Rùa thật trên gò nhỏ giữa Hồ Gươm, Hà Nội.",
+          "summary": "Tháp Rùa đứng giữa Hồ Hoàn Kiếm — biểu tượng gắn với truyền thuyết trả gươm thần. Mô hình giữ lại ba tầng vòm cuốn, ô cửa bát giác và đỉnh mái rồng chầu, sơn giả đá rêu phong như tháp thật.",
           "timeline": [
             {
               "year": "TK 15",
