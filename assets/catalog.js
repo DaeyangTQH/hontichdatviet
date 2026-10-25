@@ -241,6 +241,23 @@
     );
   }
 
+  function renderProductVideo(product) {
+    var videoUrl = typeof product.video === "string"
+      ? product.video
+      : product.video && product.video.vi;
+    if (!videoUrl) return "";
+    return (
+      '<div class="product-video" aria-label="Video mô tả sản phẩm">' +
+        '<div class="product-video-frame">' +
+          '<video controls preload="metadata" playsinline poster="' + escapeHtml(product.image || "") + '" aria-label="Video mô tả ' + escapeHtml(product.name) + '">' +
+            '<source src="' + escapeHtml(videoUrl) + '" type="video/mp4" />' +
+            'Trình duyệt của bạn không hỗ trợ phát video.' +
+          '</video>' +
+        '</div>' +
+      '</div>'
+    );
+  }
+
   function renderContactPage(catalog) {
     var note = document.querySelector("[data-contact-product]");
     if (!note) return;
@@ -350,14 +367,15 @@
               '<p class="story-sub">' + escapeHtml(product.location) + ' · ' + escapeHtml(product.tagline) + '</p>' +
             '</header>' +
             '<p class="product-summary">' + escapeHtml(product.summary || "") + '</p>' +
-            renderContact(product) +
+            '<div class="product-story">' +
+              renderTimeline(product.timeline) +
+              (product.funFact
+                ? '<div class="funfact"><span class="funfact-label">Fun fact</span><p>' + escapeHtml(product.funFact) + '</p></div>'
+                : "") +
+            '</div>' +
           '</div>' +
-          '<div class="product-story">' +
-            renderTimeline(product.timeline) +
-            (product.funFact
-              ? '<div class="funfact"><span class="funfact-label">Fun fact</span><p>' + escapeHtml(product.funFact) + '</p></div>'
-              : "") +
-          '</div>' +
+          renderProductVideo(product) +
+          renderContact(product) +
         '</div>' +
 
         renderRelated(collection, product.id) +

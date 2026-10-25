@@ -32,6 +32,7 @@ Sản phẩm tổ chức theo **bộ sưu tập → sản phẩm**, dữ liệu 
 - Click sản phẩm mở `product.html?id=<product-id>` (trang chi tiết riêng).
 - **Bộ Di sản (hiện có):** Khuê Văn Các · Chùa Một Cột · Tháp Rùa Hồ Gươm.
 - Thêm collection/sản phẩm mới: chỉ cần cập nhật JSON (+ ảnh trong `assets/img/`).
+- Video mô tả lưu bằng URL Cloudinary trong `product.video.vi` và `product.video.en`; hiện trang chi tiết phát bản tiếng Việt.
 - **Giá trị:** repeat purchase, cảm giác gom đủ bộ, dễ mở rộng catalog.
 
 ## Hero Requirements (landing)
