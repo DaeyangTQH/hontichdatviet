@@ -18,6 +18,10 @@
           "imageWidth": 2085,
           "imageHeight": 2414,
           "cardFocus": "50% 75%",
+          "video": {
+            "vi": "https://res.cloudinary.com/dp3whqfs1/video/upload/v1792949049/Kvc-Vn.mp4",
+            "en": "https://res.cloudinary.com/dp3whqfs1/video/upload/v1792949030/Kvc-En.mp4"
+          },
           "alt": "Mô hình in 3D Khuê Văn Các: gác sơn đỏ với cửa sổ tròn, mái vàng đồng phủ patina xanh, bốn trụ giả đá trên bệ vuông.",
           "placeImage": "assets/img/khue-van-cac-real.jpeg",
           "placeImageWidth": 974,
@@ -49,6 +53,10 @@
           "imageWidth": 2564,
           "imageHeight": 1574,
           "cardFocus": "88% 50%",
+          "video": {
+            "vi": "https://res.cloudinary.com/dp3whqfs1/video/upload/v1792949049/C1c-Vn.mp4",
+            "en": "https://res.cloudinary.com/dp3whqfs1/video/upload/v1792949033/C1c-En.mp4"
+          },
           "alt": "Mô hình in 3D Chùa Một Cột: điện thờ màu đồng sẫm trên một trụ đá, cầu thang giả đá dẫn lên, đặt trên bệ trắng.",
           "placeImage": "assets/img/chua-1-cot-real.jpg",
           "placeImageWidth": 487,
@@ -80,6 +88,10 @@
           "imageWidth": 1886,
           "imageHeight": 2417,
           "cardFocus": "50% 100%",
+          "video": {
+            "vi": "https://res.cloudinary.com/dp3whqfs1/video/upload/v1792949058/Tr-Vn.mp4",
+            "en": "https://res.cloudinary.com/dp3whqfs1/video/upload/v1792949058/Tr-En.mp4"
+          },
           "alt": "Mô hình in 3D Tháp Rùa: ba tầng vòm cuốn giả đá rêu phong, đỉnh mái đồng sẫm với rồng chầu, đặt trên bệ đá.",
           "placeImage": "assets/img/thap-rua-real.jpg",
           "placeImageWidth": 330,
