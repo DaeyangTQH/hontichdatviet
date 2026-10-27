@@ -13,7 +13,9 @@
       var paused = heroVideo.paused;
       videoToggle.dataset.state = paused ? "paused" : "playing";
       videoToggle.setAttribute("aria-pressed", String(!paused));
+      if (label && window.HTDV_I18N) label.textContent = window.HTDV_I18N.text(paused ? "play" : "pause");
       if (label) label.textContent = paused ? "Phát video" : "Tạm dừng video";
+      if (label && window.HTDV_I18N) label.textContent = window.HTDV_I18N.text(paused ? "play" : "pause");
     };
     if (reduceMotion) {
       heroVideo.removeAttribute("autoplay");
@@ -36,6 +38,10 @@
   /* Sticky header border once scrolled past the hero top */
   if (header) {
     var onScroll = function () {
+      if (document.body.classList.contains("page-product")) {
+        header.classList.add("is-scrolled");
+        return;
+      }
       if (window.scrollY > 8) {
         header.classList.add("is-scrolled");
       } else {

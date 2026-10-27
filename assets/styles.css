@@ -238,6 +238,8 @@ a { color: inherit; }
 .site-header .wordmark { color: #fff; transition: color 0.3s var(--ease-out); }
 .site-header .nav-links a { color: rgba(255, 255, 255, 0.85); }
 .site-header:not(.is-scrolled) .nav-links a:hover { color: #fff; }
+.site-header:not(.is-scrolled) { background: rgba(14, 9, 4, 0.22); backdrop-filter: blur(8px); border-bottom-color: rgba(255, 255, 255, 0.12); }
+body:not(.page-product) .site-header:not(.is-scrolled) .wordmark { border-radius: .65rem; background: rgba(246, 242, 234, .42); box-shadow: 0 4px 14px rgba(0, 0, 0, .14); }
 
 .site-header.is-scrolled {
   background: rgba(246, 242, 234, 0.85);
@@ -270,7 +272,20 @@ a { color: inherit; }
   -webkit-user-drag: none;
   border-radius: 0.55rem;
 }
-.btn-nav { flex: none; }
+.btn-nav { flex: none; margin-right: 4.9rem; }
+.language-switcher { position: absolute; top: 50%; right: max(1rem, calc((100vw - var(--container)) / 2)); transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; gap: .38rem; min-width: 4.8rem; min-height: 2.75rem; padding: .55rem .72rem; border: 1px solid currentColor; border-radius: 999px; background: transparent; color: #fff; box-shadow: none; font: inherit; font-size: .76rem; letter-spacing: .08em; cursor: pointer; z-index: 2; transition: background .2s var(--ease-out), color .2s var(--ease-out), border-color .2s var(--ease-out), box-shadow .2s var(--ease-out); }
+.site-header:not(.is-scrolled) .language-switcher { color: #fff; border-color: rgba(255, 255, 255, .78); }
+.site-header.is-scrolled .language-switcher { color: var(--ink-soft); border-color: var(--line-strong); }
+body:not(.page-product) .site-header:not(.is-scrolled) .language-switcher { color: rgba(255, 255, 255, .85); border-color: currentColor; }
+body:not(.page-product) .site-header.is-scrolled .language-switcher { color: var(--muted); border-color: var(--line); }
+.language-switcher:hover { background: rgba(255, 255, 255, .12); box-shadow: 0 8px 22px rgba(0, 0, 0, .12); }
+.site-header.is-scrolled .language-switcher:hover { background: var(--soft); border-color: var(--lacquer); }
+.language-switcher [data-lang-option] { opacity: .55; transition: color .2s var(--ease-out), opacity .2s var(--ease-out); }
+.language-switcher [data-lang-option].is-active { opacity: 1; color: var(--lacquer-deep); font-weight: 700; }
+.site-header:not(.is-scrolled) .language-switcher [data-lang-option].is-active { color: #fff; }
+body:not(.page-product) .site-header:not(.is-scrolled) .language-switcher [data-lang-option].is-active,
+body:not(.page-product) .site-header.is-scrolled .language-switcher [data-lang-option].is-active { color: inherit; }
+.language-switcher:focus-visible { outline: 3px solid var(--lacquer-light); outline-offset: 3px; }
 .nav-links {
   display: flex;
   gap: 2rem;
@@ -332,6 +347,7 @@ a { color: inherit; }
 .hero-copy { max-width: 44rem; }
 .hero .kicker { color: var(--lacquer-light); }
 .hero .display { margin-bottom: 1.5rem; color: #fff; text-shadow: 0 1px 36px rgba(0, 0, 0, 0.3); }
+.hero-title-line { white-space: nowrap; }
 .hero .display em { color: var(--lacquer-light); }
 .hero .lede { margin-bottom: 1.25rem; color: rgba(255, 255, 255, 0.92); max-width: 42ch; }
 .hero-en {
@@ -1196,13 +1212,15 @@ img[data-zoom]:focus-visible {
 
 @media (max-width: 48rem) {
   .nav-links { display: none; }
+  .hero-title-line { white-space: normal; }
 }
 
 @media (max-width: 30rem) {
   .hero-actions .btn { width: 100%; }
   .nav { gap: 0.75rem; }
   .wordmark { height: 2.9rem; }
-  .btn-nav { padding: 0.55rem 1.1rem; font-size: 0.82rem; }
+  .btn-nav { padding: 0.55rem 1.1rem; font-size: 0.82rem; margin-right: 4.4rem; }
   .btn-nav .lbl-full { display: none; }
   .btn-nav .lbl-short { display: inline; }
+  .language-switcher { right: 1rem; }
 }
