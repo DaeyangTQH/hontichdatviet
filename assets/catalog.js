@@ -4,6 +4,14 @@
   var CATALOG_URL = "assets/data/catalog.json";
 
   var CONTACT_EMAIL = "hontichdatviet@gmail.com";
+  var EN = { "khue-van-cac": { name: "Khue Van Cac", tagline: "The literary pavilion of the Temple of Literature.", summary: "Khue Van Cac is an icon of Hanoi’s Temple of Literature, celebrating Vietnam’s scholarly tradition.", funFact: "The round window represents the Khue star, associated with literature and learning.", timeline: ["Built under the Nguyen dynasty, Khue Van Cac became the gateway to the Temple of Literature’s scholarly space.", "Its round windows and curved roofs became familiar symbols of Hanoi and Vietnamese education.", "Today it remains an official symbol of Hanoi — now ready for your shelf."] }, "chua-mot-cot": { name: "One Pillar Pagoda", tagline: "A lotus rising from the water.", summary: "One Pillar Pagoda stands on a single pillar in a square lotus pond, like a lotus rising from the water.", funFact: "The pagoda’s original name, Dien Huu, expresses a wish for lasting blessing and prosperity.", timeline: ["The pagoda was commissioned by Emperor Ly Thai Tong and linked to the lotus in Vietnamese legend.", "After being destroyed in 1954, it was rebuilt as an enduring symbol of Vietnamese Buddhist architecture.", "Today it remains closely associated with Hanoi — and belongs to the Heritage collection."] }, "thap-rua-ho-guom": { name: "Turtle Tower", tagline: "The legend of the returned sword in the heart of the lake.", summary: "Turtle Tower rises from Hoan Kiem Lake, tied to the legend of the returned sacred sword.", funFact: "Hoan Kiem means ‘returned sword’, a name born from the legend of the Thuan Thien sword.", timeline: ["The legend of Le Loi returning the sacred sword to the Golden Turtle gave the lake its name.", "Turtle Tower was built on Turtle Islet in 1886, becoming a landmark in the lake.", "Its silhouette remains one of Hanoi’s most familiar symbols — now made for your shelf."] } };
+  function language() { return global.HTDV_I18N ? global.HTDV_I18N.get() : "vi"; }
+  function localized(product, field) { return language() === "en" && EN[product.id] && EN[product.id][field] ? EN[product.id][field] : product[field]; }
+  function localizedTimeline(product) {
+    if (language() !== "en" || !EN[product.id] || !EN[product.id].timeline) return product.timeline;
+    return (product.timeline || []).map(function (item, index) { return { year: item.year, text: EN[product.id].timeline[index] || item.text }; });
+  }
+  function collectionName(collection) { return language() === "en" ? "Heritage" : collection.name; }
 
   function escapeHtml(value) {
     return String(value == null ? "" : value)
@@ -196,10 +204,11 @@
     return (
       '<ol class="timeline" aria-label="Dòng thời gian">' +
       timeline
-        .map(function (item) {
+        .map(function (item, index) {
+          var year = language() === "en" && index === timeline.length - 1 ? "Today" : item.year;
           return (
             "<li>" +
-            '<span class="t-year">' + escapeHtml(item.year) + "</span>" +
+            '<span class="t-year">' + escapeHtml(year) + "</span>" +
             '<span class="t-text">' + escapeHtml(item.text) + "</span>" +
             "</li>"
           );
@@ -244,7 +253,7 @@
   function renderProductVideo(product) {
     var videoUrl = typeof product.video === "string"
       ? product.video
-      : product.video && product.video.vi;
+      : product.video && (product.video[language()] || product.video.vi);
     if (!videoUrl) return "";
     return (
       '<div class="product-video" aria-label="Video mô tả sản phẩm">' +
@@ -368,7 +377,7 @@
             '</header>' +
             '<p class="product-summary">' + escapeHtml(product.summary || "") + '</p>' +
             '<div class="product-story">' +
-              renderTimeline(product.timeline) +
+              renderTimeline(localizedTimeline(product)) +
               (product.funFact
                 ? '<div class="funfact"><span class="funfact-label">Fun fact</span><p>' + escapeHtml(product.funFact) + '</p></div>'
                 : "") +
@@ -389,6 +398,7 @@
         renderHomeCollections(catalog);
         renderProductPage(catalog);
         renderContactPage(catalog);
+        document.dispatchEvent(new CustomEvent("htdv:languagechange", { detail: { language: language() } }));
         return catalog;
       })
       .catch(function (error) {
@@ -409,6 +419,43 @@
         }
       });
   }
+
+  document.addEventListener("htdv:languagechange", function () {
+    if (!global.HTDV_CATALOG) return;
+    renderHomeCollections(global.HTDV_CATALOG);
+    renderProductPage(global.HTDV_CATALOG);
+    renderContactPage(global.HTDV_CATALOG);
+    if (language() === "en") {
+      var collectionIntro = document.querySelector(".collection .section-intro");
+      if (collectionIntro) collectionIntro.textContent = "Three iconic Hanoi landmarks — 3D printed, hand-finished and ready to display.";
+      document.querySelectorAll("[data-collection-tab]").forEach(function (tab) { var count = tab.querySelector(".collection-tab-count"); tab.firstChild.textContent = "Heritage "; if (count) tab.appendChild(count); });
+      document.querySelectorAll(".place-cta").forEach(function (el) { el.textContent = "View product"; });
+      document.querySelectorAll(".product-shot figcaption").forEach(function (el, index) { el.textContent = index === 0 ? "Model from the Heritage collection." : "The real landmark in Hanoi."; });
+      var relatedTitle = document.querySelector(".product-related .title"); if (relatedTitle) relatedTitle.textContent = "More models from the Heritage collection";
+    }
+    document.querySelectorAll(".place-card").forEach(function (card, index) {
+      var product = global.HTDV_CATALOG.collections[0].products[index];
+      if (!product || language() !== "en") return;
+      var name = card.querySelector(".place-name"), desc = card.querySelector(".place-desc");
+      if (name) name.textContent = localized(product, "name");
+      if (desc) desc.textContent = product.location + " · " + localized(product, "tagline");
+    });
+    var productId = getQueryParam("id"), found = productId && findProduct(global.HTDV_CATALOG, productId);
+    if (found && language() === "en") {
+      var product = found.product;
+      var title = document.querySelector(".product-info h1"), tagline = document.querySelector(".story-sub"), summary = document.querySelector(".product-summary"), fun = document.querySelector(".funfact p");
+      if (title) title.textContent = localized(product, "name");
+      if (tagline) tagline.textContent = product.location + " · " + localized(product, "tagline");
+      if (summary) summary.textContent = localized(product, "summary");
+      if (fun) fun.textContent = localized(product, "funFact");
+      document.querySelectorAll(".timeline .t-text").forEach(function (el, index) { el.textContent = EN[product.id] && EN[product.id].timeline[index] || el.textContent; });
+      var crumb = document.querySelectorAll(".product-crumb"); if (crumb.length) { var links = crumb[0].querySelectorAll("a"); if (links[0]) links[0].textContent = "Home"; if (links[1]) links[1].textContent = "Heritage"; }
+      var related = document.querySelector(".product-related .kicker"); if (related) related.textContent = "More from the collection";
+      var contactLabel = document.querySelector(".product-contact-label"); if (contactLabel) contactLabel.textContent = "Order";
+      var contactButton = document.querySelector(".product-contact .btn"); if (contactButton) contactButton.textContent = "Contact to order";
+      var contactNote = document.querySelector(".product-contact-note"); if (contactNote) contactNote.textContent = "Via Zalo, Facebook or email.";
+    }
+  });
 
   global.HTDV = {
     loadCatalog: loadCatalog,

@@ -293,3 +293,13 @@ So sánh trực tiếp để làm rõ điểm khác biệt — phục vụ pitch
 - **Don't** revert the accent to luxury/jewelry gold (`#b98a3a`); keep the aged-wood lacquer tone.
 - **Don't** overload motifs into a state-tourism / traditional-museum look — stay within 5–10%.
 - **Don't** frame the site around QR unlock / digital storytelling — this is a product introduction landing.
+
+## Localization & Responsive Header
+
+- Use one URL per page with client-side VI/EN switching; Vietnamese is the default and the selected language is stored in `localStorage` as `htdv-language`.
+- Preserve the existing HTML structure, typography, emphasis, icons, spacing, and layout when replacing localized content.
+- Localize product names, taglines, summaries, fun facts, timeline milestones, image captions, related-product labels, and video source URLs.
+- The `VI | EN` control is keyboard-accessible, has a visible focus state, and indicates the active language.
+- On `index.html`, the header transitions from a lightly translucent dark hero state to a paper-toned blurred state after scrolling; the language control follows the navigation link colors.
+- Product and contact pages stay in the light header state from the top for reliable contrast.
+- Keep the VI and EN hero headlines in the same two-line structure so switching language does not shift supporting content.
