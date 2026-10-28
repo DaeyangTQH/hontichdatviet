@@ -76,15 +76,15 @@
   function renderProductCard(product) {
     return (
       '<li>' +
-        '<a class="place-card" href="' + escapeHtml(productHref(product.id)) + '">' +
+        '<a class="place-card" data-product-id="' + escapeHtml(product.id) + '" href="' + escapeHtml(productHref(product.id)) + '">' +
           '<div class="place-media">' +
-            '<img src="' + escapeHtml(product.image) + '" alt="' + escapeHtml(product.alt || product.name) + '"' +
+            '<img src="' + escapeHtml(product.image) + '" alt="' + escapeHtml(localized(product, "alt") || localized(product, "name")) + '"' +
               focusAttr(product.cardFocus) +
               sizeAttrs(product.imageWidth, product.imageHeight) + ' loading="lazy" decoding="async" />' +
             '<span class="frame-corner" aria-hidden="true"></span>' +
           '</div>' +
           '<div class="place-body">' +
-            '<h3 class="place-name">' + escapeHtml(product.name) + '</h3>' +
+            '<h3 class="place-name">' + escapeHtml(localized(product, "name")) + '</h3>' +
             '<p class="place-desc">' + escapeHtml(product.location) + ' · ' + escapeHtml(product.tagline) + '</p>' +
             '<span class="place-cta">Xem sản phẩm</span>' +
           '</div>' +
@@ -433,8 +433,9 @@
       document.querySelectorAll(".product-shot figcaption").forEach(function (el, index) { el.textContent = index === 0 ? "Model from the Heritage collection." : "The real landmark in Hanoi."; });
       var relatedTitle = document.querySelector(".product-related .title"); if (relatedTitle) relatedTitle.textContent = "More models from the Heritage collection";
     }
-    document.querySelectorAll(".place-card").forEach(function (card, index) {
-      var product = global.HTDV_CATALOG.collections[0].products[index];
+    document.querySelectorAll(".place-card").forEach(function (card) {
+      var foundCard = findProduct(global.HTDV_CATALOG, card.getAttribute("data-product-id"));
+      var product = foundCard && foundCard.product;
       if (!product || language() !== "en") return;
       var name = card.querySelector(".place-name"), desc = card.querySelector(".place-desc");
       if (name) name.textContent = localized(product, "name");
